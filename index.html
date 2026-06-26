@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description"
+        content="DeWorldSG: Depth-Aware 3D Semantic Scene Graph Generation via World-Model Priors">
+    <meta name="keywords" content="DeWorldSG, 3D Semantic Scene Graph, Scene Graph Generation, World-Model Priors">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DeWorldSG: Depth-Aware 3D Semantic Scene Graph Generation via World-Model Priors</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-slider@2.0.4/dist/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <link rel="icon" href="./static/images/graph.png">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/js/bulma-carousel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bulma-slider@2.0.4/dist/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div class="navbar-menu">
+            <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+            </div>
+        </div>
+    </nav>
+
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title publication-title">
+                            <img src="./static/images/graph.png" alt="DeWorldSG Icon"
+                                style="height: 0.95em; vertical-align: middle; margin-right: 6px; margin-bottom: 8px;">
+                            DeWorldSG: Depth-Aware 3D Semantic Scene Graph Generation via World-Model Priors
+                        </h1>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">
+                                <a href="https://seokyoungxr.github.io">Seok-Young Kim</a></span>
+                            <span class="author-block">
+                                <a href="https://dooyoung.me">Dooyoung Kim</a></span>
+                            <span class="author-block">
+                                <a href="https://uvr-wjcho.github.io">Woojin Cho</a></span>
+                            <span class="author-block">
+                                <a href="https://hailsong.github.io">Hail Song</a></span>
+                            <span class="author-block">
+                                <a href="">Suji Kang</a></span>
+                            <span class="author-block">
+                                <a href="https://www.linkedin.com/in/wtwoo/">Woontack Woo</a>
+                            </span>
+                        </div>
+
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">KAIST</span>
+                        </div>
+
+                        <div class="column has-text-centered">
+                            <div class="publication-venue">
+                                ECCV 2026
+                            </div>
+                        </div>
+
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+                                <span class="link-block">
+                                    <a href="./Depworldsg_jepa.pdf"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fas fa-file-pdf"></i>
+                                        </span>
+                                        <span>Paper</span>
+                                    </a>
+                                </span>
+                                <span class="link-block">
+                                    <a href="#demo-video" class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fab fa-youtube"></i>
+                                        </span>
+                                        <span>Video</span>
+                                    </a>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered has-text-centered" style="margin-bottom: 3rem;">
+                <div class="column is-four-fifths">
+                    <div class="content has-text-centered">
+                        <h2 class="title is-3" style="margin-bottom: 1rem;">TL; DR</h2>
+                        <p class="is-size-5 has-text-weight-bold">
+                            We introduce DeWorldSG, which generates depth-aware 3D semantic scene graphs by leveraging
+                            world-model priors for context-consistent scene understanding.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="columns is-centered has-text-centered" style="margin-bottom: 3rem;">
+                <div class="column is-full-width">
+                    <img src="./static/images/scenelinker_teaser.png" width="100%">
+                </div>
+            </div>
+
+            <div class="columns is-centered has-text-centered" style="margin-bottom: 3rem;">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3 has-text-centered">Abstract</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            We introduce DeWorldSG, a depth-aware framework for 3D semantic scene graph generation via
+                            world-model priors.
+                            To understand real-world spaces for embodied AI, robotics, and spatial computing, it is
+                            essential to recover not only object categories and geometry, but also the semantic
+                            relationships that organize a scene.
+                            Existing approaches often struggle to capture contextual object relationships under noisy
+                            depth estimates, incomplete observations, and complex indoor arrangements.
+                            DeWorldSG addresses these challenges by grounding scene graph prediction in depth-aware
+                            3D representations and using world-model priors to enrich object and relationship features.
+                            Following the SceneLinker project-page template, this preliminary page uses SceneLinker
+                            figures and descriptions as placeholders until the final DeWorldSG materials are available.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="columns is-centered" style="margin-bottom: 3rem;">
+                <div class="column is-full-width">
+                    <h2 class="title is-3 has-text-centered">Method</h2>
+                    <div class="content has-text-centered">
+                        <img src="./static/images/main.png" width="100%" style="margin-bottom: 1.5rem;">
+                    </div>
+                    <div class="content has-text-justified">
+                        <p>
+                            <strong>DeWorldSG</strong>'s goal is to represent the real world at the graph level and to
+                            construct context-consistent 3D semantic scene graphs.
+                            Our preliminary pipeline follows the structure of SceneLinker: <strong>(1) depth-aware 3D
+                                scene representation</strong>, and <strong>(2) semantic relationship prediction guided
+                                by world-model priors</strong>.
+                        </p>
+                        <p>
+                            The first phase incrementally constructs segmented maps and point clouds from image
+                            sequences to estimate 3D entities. These entities form nodes in a neighbor graph represented
+                            by oriented bounding boxes, multi-view image observations, and point features. A graph
+                            network then propagates features between nodes to refine object and relationship
+                            predictions.
+                        </p>
+                        <p>
+                            In the second phase, depth-aware object features and predicted spatial layouts are combined
+                            with priors from world models. These priors provide high-level contextual cues that help
+                            disambiguate semantic relations and preserve consistency across complex indoor scenes.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="columns is-centered" style="margin-bottom: 3rem;">
+                <div class="column is-full-width">
+                    <h2 class="title is-3 has-text-centered">Results</h2>
+                    <div class="content has-text-centered">
+                        <img src="./static/images/fig_7_original.png" width="100%" style="margin-bottom: 1.5rem;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="columns is-centered has-text-centered" style="margin-top: 2rem;">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3 has-text-centered">Demo Video</h2>
+                    <video id="demo-video" controls playsinline width="100%">
+                        <source src="./static/images/scenelinker26_demo.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+            <h2 class="title">BibTeX</h2>
+            <pre><code>@inproceedings{kim2026deworldsg,
+  title={DeWorldSG: Depth-Aware 3D Semantic Scene Graph Generation via World-Model Priors},
+  author={Kim, Seok-Young and Kim, Dooyoung and Cho, Woojin and Song, Hail and Kang, Suji and Woo, Woontack},
+  booktitle={European Conference on Computer Vision (ECCV)},
+  year={2026}
+}</code></pre>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="content has-text-centered">
+                <a class="icon-link" href="./Depworldsg_jepa.pdf">
+                    <i class="fas fa-file-pdf"></i>
+                </a>
+                <a class="icon-link" href="#" class="external-link" disabled>
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <div class="columns is-centered">
+                <div class="column is-8">
+                    <div class="content">
+                        <p>
+                            This website is licensed under a <a rel="license"
+                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                                Commons Attribution-ShareAlike 4.0 International License</a>.
+                        </p>
+                        <p>
+                            Website adapted from <a href="https://nerfies.github.io">nerfies</a> and the SceneLinker
+                            project page.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
