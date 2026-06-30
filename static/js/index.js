@@ -47,9 +47,16 @@ $(document).ready(function() {
       $('#interpolation-slider').prop('max', interpolationImages.length - 1);
     }
 
-    bulmaSlider.attach();
+	    bulmaSlider.attach();
 
-})
+	    $('#demo-video video').each(function() {
+	      this.playbackRate = 1.3;
+	      this.addEventListener('loadedmetadata', function() {
+	        this.playbackRate = 1.3;
+	      });
+	    });
+
+	})
 
 var interpolationImages = [];
 function preloadInterpolationImages() {
