@@ -119,8 +119,7 @@
                     <div class="content has-text-centered">
                         <h2 class="title is-3" style="margin-bottom: 1rem;">TL; DR</h2>
                         <p class="is-size-5 has-text-weight-bold">
-                            We introduce DeWorldSG, which generates depth-aware 3D semantic scene graphs by leveraging
-                            world-model priors for context-consistent scene understanding.
+                            DeWorldSG generates spatio-temporally consistent 3D semantic scene graphs from RGB-D sequences by combining depth-aware probabilistic object modeling with world-model-guided relation reasoning.
                         </p>
                     </div>
                 </div>
@@ -128,7 +127,7 @@
 
             <div class="columns is-centered has-text-centered" style="margin-bottom: 3rem;">
                 <div class="column is-full-width">
-                    <img src="./static/images/scenelinker_teaser.png" width="100%">
+                    <img src="./images/teaser_eccv.pdf" width="100%">
                 </div>
             </div>
 
@@ -137,17 +136,7 @@
                     <h2 class="title is-3 has-text-centered">Abstract</h2>
                     <div class="content has-text-justified">
                         <p>
-                            We introduce DeWorldSG, a depth-aware framework for 3D semantic scene graph generation via
-                            world-model priors.
-                            To understand real-world spaces for embodied AI, robotics, and spatial computing, it is
-                            essential to recover not only object categories and geometry, but also the semantic
-                            relationships that organize a scene.
-                            Existing approaches often struggle to capture contextual object relationships under noisy
-                            depth estimates, incomplete observations, and complex indoor arrangements.
-                            DeWorldSG addresses these challenges by grounding scene graph prediction in depth-aware
-                            3D representations and using world-model priors to enrich object and relationship features.
-                            Following the SceneLinker project-page template, this preliminary page uses SceneLinker
-                            figures and descriptions as placeholders until the final DeWorldSG materials are available.
+                            We present DeWorldSG, a novel framework that generates spatio-temporally robust 3D Semantic Scene Graphs from RGB-D sequences. Existing methods often struggle to construct reliable 3D scene graphs due to unstable 3D object representations and missing relations caused by frame-wise inference. DeWorldSG addresses these issues by estimating instance-level geometric 3D Gaussian distributions through depth-guided filtering and representing each object as a probabilistic 3D node rather than a single projected point. To mitigate relational sparsity from frame-wise inference, our framework further aggregates spatiotemporal evidence across object pairs and refines relations using contextual priors derived from a world model (V-JEPA 2). Experiments on the 3DSSG and ReplicaSSG datasets demonstrate state-of-the-art (SoTA) performance in both object and predicate prediction, while producing temporally consistent scene structures. In particular, our method improves triplet recall by 77.4% and predicate recall by 23.2% over prior SoTA approaches, making it suitable for robotic manipulation and AR applications.
                         </p>
                     </div>
                 </div>
@@ -158,17 +147,19 @@
                 <div class="column is-full-width">
                     <h2 class="title is-3 has-text-centered">Method</h2>
                     <div class="content has-text-centered">
-                        <img src="./static/images/main.png" width="100%" style="margin-bottom: 1.5rem;">
+                        <img src="./images/2_main.pdf" width="100%" style="margin-bottom: 1.5rem;">
                     </div>
                     <div class="content has-text-justified">
                         <p>
-                            <strong>DeWorldSG</strong>'s goal is to represent the real world at the graph level and to
+                            <!-- <strong>DeWorldSG</strong>'s goal is to represent the real world at the graph level and to
                             construct context-consistent 3D semantic scene graphs.
                             Our preliminary pipeline follows the structure of SceneLinker: <strong>(1) depth-aware 3D
                                 scene representation</strong>, and <strong>(2) semantic relationship prediction guided
-                                by world-model priors</strong>.
+                                by world-model priors</strong>. -->
+                            
+                            <strong>DeWorldSG</strong> first extracts frame-wise 2D scene graphs from RGB-D observations, then lifts each detected instance into a depth-aware probabilistic 3D Gaussian using SAM-guided masks and Dual-Domain Depth Refinement. Local 3D graphs are incrementally merged into a global scene graph via semantic consistency and Gaussian similarity, while uncertain object relations are refined by aggregating temporal evidence and fusing it with V-JEPA 2 world-model priors.
                         </p>
-                        <p>
+                        <!-- <p>
                             The first phase incrementally constructs segmented maps and point clouds from image
                             sequences to estimate 3D entities. These entities form nodes in a neighbor graph represented
                             by oriented bounding boxes, multi-view image observations, and point features. A graph
@@ -178,7 +169,7 @@
                         <p>
                             In the second phase, depth-aware object features and predicted spatial layouts are combined
                             with priors from world models. These priors provide high-level contextual cues that help
-                            disambiguate semantic relations and preserve consistency across complex indoor scenes.
+                            disambiguate semantic relations and preserve consistency across complex indoor scenes. -->
                         </p>
                     </div>
                 </div>
@@ -189,7 +180,7 @@
                 <div class="column is-full-width">
                     <h2 class="title is-3 has-text-centered">Results</h2>
                     <div class="content has-text-centered">
-                        <img src="./static/images/fig_7_original.png" width="100%" style="margin-bottom: 1.5rem;">
+                        <img src="./images/results.pdf" width="100%" style="margin-bottom: 1.5rem;">
                     </div>
                 </div>
             </div>
